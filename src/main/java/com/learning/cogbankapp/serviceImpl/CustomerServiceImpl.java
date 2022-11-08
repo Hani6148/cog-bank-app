@@ -19,5 +19,4 @@ public class CustomerServiceImpl implements CustomerService {
 		// TODO Auto-generated method stub
 		return cusRepo.save(c);
 	}
-
 }

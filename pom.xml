@@ -7,11 +7,11 @@
 		<version>2.7.4</version>
 		<relativePath /> <!-- lookup parent from repository -->
 	</parent>
-	<groupId>com.demo</groupId>
-	<artifactId>FirstBootProject</artifactId>
+	<groupId>com.learning</groupId>
+	<artifactId>cog-bank-app</artifactId>
 	<version>0.0.1-SNAPSHOT</version>
-	<name>FirstBootProject</name>
-	<description>Demo project for Spring Boot</description>
+	<name>cog-bank-app</name>
+	<description>Cogent bank app capstone project</description>
 	<properties>
 		<java.version>11</java.version>
 	</properties>
