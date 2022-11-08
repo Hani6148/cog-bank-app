@@ -28,10 +28,10 @@ public class CustomerRequest {
 	private String mobileNum;
 	
 	
-	@Pattern(regexp = "^(?=.*[0-9])"
-            + "(?=.*[a-z])(?=.*[A-Z])"
-            + "(?=.*[@#$%^&+=])"
-            + "(?=\\S+$).{8,20}$",message = "Your passowrd must constain at least one of these characters")
+//	@Pattern(regexp = "^(?=.*[0-9])"
+//            + "(?=.*[a-z])(?=.*[A-Z])"
+//            + "(?=.*[@#$%^&+=])"
+//            + "(?=\\S+$).{8,20}$",message = "Your passowrd must constain at least one of these characters")
 	private String password;
 
 }

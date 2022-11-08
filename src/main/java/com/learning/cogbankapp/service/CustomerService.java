@@ -1,5 +1,11 @@
 package com.learning.cogbankapp.service;
 
-public interface CustomerService {
 
+import com.learning.cogbankapp.model.Customer;
+
+public interface CustomerService {
+	
+	public Customer save(Customer c);
+	
 }
+
