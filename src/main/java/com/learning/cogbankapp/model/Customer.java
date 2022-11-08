@@ -1,10 +1,9 @@
 package com.learning.cogbankapp.model;
 
+import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
 import javax.persistence.Table;
-
-import org.springframework.web.bind.annotation.RestController;
 
 import lombok.AllArgsConstructor;
 import lombok.Getter;
@@ -13,7 +12,7 @@ import lombok.Setter;
 import lombok.ToString;
 
 
-@RestController
+@Entity
 @Table(name = "customer_banking")
 @Setter
 @Getter
