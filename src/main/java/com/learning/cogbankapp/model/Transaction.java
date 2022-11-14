@@ -2,9 +2,11 @@ package com.learning.cogbankapp.model;
 
 import java.util.ArrayList;
 
+import javax.persistence.CascadeType;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
+import javax.persistence.ManyToOne;
 import javax.persistence.Table;
 
 import lombok.AllArgsConstructor;
@@ -20,7 +22,9 @@ public class Transaction {
 	@Id
 	@GeneratedValue
 	private Integer transactionId;
+	@ManyToOne(cascade=CascadeType.ALL)
 	private Integer senderId;
+	@ManyToOne(cascade=CascadeType.ALL)
 	private Integer receiverId;
 	private Float amount;
 	
