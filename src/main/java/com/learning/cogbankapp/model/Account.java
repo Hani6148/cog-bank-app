@@ -28,8 +28,8 @@ public class Account {
 	private Integer customerId;
 	private Float accountValue;
 	private boolean accountActive = false;
-	@OneToMany(cascade=CascadeType.ALL, mappedBy="senderID",fetch=FetchType.EAGER)
+	@OneToMany(cascade=CascadeType.ALL, mappedBy="senderId",fetch=FetchType.EAGER)
 	private ArrayList <Transaction> sendTransactions = new ArrayList<>();
-	@OneToMany(cascade=CascadeType.ALL, mappedBy="receiverID",fetch=FetchType.EAGER)
+	@OneToMany(cascade=CascadeType.ALL, mappedBy="receiverId",fetch=FetchType.EAGER)
 	private ArrayList <Transaction> receiveTransactions = new ArrayList<>();
 }
