@@ -11,9 +11,9 @@ import com.learning.cogbankapp.repository.StaffRepository;
 import com.learning.cogbankapp.serviceValidation.StaffServiceValidation;
 
 public class StaffServiceValidationImpl implements StaffServiceValidation {
-	
+
 	@Autowired
-	StaffRepository staffRepository;
+	StaffRepository sr;
 
 	@Override
 	public Staff registerStaff(StaffRequest staff) {
@@ -23,31 +23,36 @@ public class StaffServiceValidationImpl implements StaffServiceValidation {
 		s.setLastName(staff.getLastName());
 		s.setEmail(staff.getEmail());
 		s.setPassword(staff.getPassword());
-		return staffRepository.save(s);
+		return sr.save(s);
 	}
 
 	@Override
 	public Staff updateStaff(StaffRequest staff) {
 		// TODO Auto-generated method stub
-		return null;
+		Staff s = new Staff();
+		s.setFirstName(staff.getFirstName());
+		s.setLastName(staff.getLastName());
+		s.setEmail(staff.getEmail());
+		s.setPassword(staff.getPassword());
+		return sr.save(s);
 	}
 
 	@Override
 	public void deleteById(Integer id) {
 		// TODO Auto-generated method stub
-		
+		sr.deleteById(id);
 	}
 
 	@Override
 	public Staff findStaffById(Integer id) {
 		// TODO Auto-generated method stub
-		return null;
+		return sr.findById(id).get();
 	}
 
 	@Override
 	public List<Staff> findAllStaff() {
 		// TODO Auto-generated method stub
-		return null;
+		return sr.findAll();
 	}
 
 }
