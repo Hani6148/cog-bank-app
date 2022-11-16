@@ -3,8 +3,12 @@ package com.learning.cogbankapp.controller;
 import javax.validation.Valid;
 
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.web.bind.annotation.GetMapping;
+
+import org.springframework.web.bind.annotation.DeleteMapping;
+import org.springframework.web.bind.annotation.PathVariable;
+
 import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
@@ -23,26 +27,40 @@ public class CustomerController {
 	
 	//Saving methods
 	
-	@PostMapping("/save")
+	@PostMapping("/register")
 	public Customer saving(@RequestBody Customer cus) {
 		
-		cusService.save(cus);
+		cusService.register(cus);
 		return cus;
 	}
-	@GetMapping("/customerLogin")
-	public String getCustomerPage () {
 		
-		
-		return "please login";
-		
-	}
-	
-	
-	
+
 	@PostMapping("/save/valid")
 	public CustomerRequest saveValidation(@RequestBody @Valid CustomerRequest cr) {
 		
+
 		return cr;
+
 	}
+	
+	
+	
+	//Updating data for the user
+	@PutMapping("/update")
+	public Customer update(@RequestBody Customer c) {
+		
+		return cusService.update(c);
+	}
+	
+	
+	//Customer account deletion-
+	@DeleteMapping("/delete/{id}")
+	public String accDelete(@PathVariable Integer id) {
+		
+		cusService.deleteAccById(id);
+		
+		return "Account with id : " + id + " has successfully been deleted!";
+	}
+	
 
 }
