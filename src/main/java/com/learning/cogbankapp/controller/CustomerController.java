@@ -3,8 +3,10 @@ package com.learning.cogbankapp.controller;
 import javax.validation.Valid;
 
 import org.springframework.beans.factory.annotation.Autowired;
+
 import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.PathVariable;
+
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
@@ -31,7 +33,8 @@ public class CustomerController {
 		cusService.register(cus);
 		return cus;
 	}
-	
+		
+
 	@PostMapping("/save/valid")
 	public CustomerRequest saveValidation(@RequestBody @Valid CustomerRequest cr) {
 		
