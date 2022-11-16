@@ -25,7 +25,6 @@ public class Transaction {
 	@ManyToOne(cascade=CascadeType.ALL)
 	private Account sender;
 	@ManyToOne(cascade=CascadeType.ALL)
-
 	private Account receiver;
 	private Float amount;
 	
