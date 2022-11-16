@@ -39,5 +39,5 @@ public class Customer {
 	@OneToMany(cascade=CascadeType.ALL, mappedBy="customer",fetch=FetchType.EAGER)
 	private Set<Account> accounts= new HashSet<>();
 	private String role;
-
+    
 }

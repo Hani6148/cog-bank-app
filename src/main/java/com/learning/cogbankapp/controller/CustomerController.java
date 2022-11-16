@@ -33,7 +33,7 @@ public class CustomerController {
 	public String getCustomerPage () {
 		
 		
-		return "hani";
+		return "please login";
 		
 	}
 	
