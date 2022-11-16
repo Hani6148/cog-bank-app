@@ -25,7 +25,12 @@ public class StaffServiceImpl implements StaffService {
 	@Override
 	public Staff updateStaff(Staff staff) {
 		// TODO Auto-generated method stub
-		return null;
+		Staff s = sr.findById(staff.getId()).orElse(null);
+		s.setFirstName(staff.getFirstName());
+		s.setLastName(staff.getLastName());
+		s.setEmail(staff.getEmail());
+		s.setPassword(staff.getPassword());
+		return sr.save(s);
 	}
 
 	@Override
@@ -35,9 +40,10 @@ public class StaffServiceImpl implements StaffService {
 	}
 
 	@Override
-	public Optional<Staff> findStaffById(Integer id) {
+	public Staff findStaffById(Integer id) {
 		// TODO Auto-generated method stub
-		return sr.findById(id);
+		Staff s = sr.findById(id).get();
+		return s;
 	}
 
 	@Override
