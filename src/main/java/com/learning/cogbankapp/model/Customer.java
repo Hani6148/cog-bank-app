@@ -36,5 +36,6 @@ public class Customer {
 	private String password;
 	@OneToMany(cascade=CascadeType.ALL, mappedBy="accountId",fetch=FetchType.EAGER)
 	private ArrayList<Account> accounts= new ArrayList<>();
+	private String role;
 
 }

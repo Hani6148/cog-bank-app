@@ -32,4 +32,5 @@ public class Account {
 	private ArrayList <Transaction> sendTransactions = new ArrayList<>();
 	@OneToMany(cascade=CascadeType.ALL, mappedBy="receiverId",fetch=FetchType.EAGER)
 	private ArrayList <Transaction> receiveTransactions = new ArrayList<>();
+	
 }

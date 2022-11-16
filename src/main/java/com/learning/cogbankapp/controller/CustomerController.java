@@ -3,6 +3,7 @@ package com.learning.cogbankapp.controller;
 import javax.validation.Valid;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -28,6 +29,15 @@ public class CustomerController {
 		cusService.save(cus);
 		return cus;
 	}
+	@GetMapping("/customerLogin")
+	public String getCustomerPage () {
+		
+		
+		return "hani";
+		
+	}
+	
+	
 	
 	@PostMapping("/save/valid")
 	public CustomerRequest saveValidation(@RequestBody @Valid CustomerRequest cr) {
