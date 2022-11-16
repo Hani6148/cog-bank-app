@@ -13,7 +13,7 @@ public interface StaffServiceValidation {
 
 	public void deleteById(Integer id);
 
-	public Optional<Staff> findStaffById(Integer id);
+	public Staff findStaffById(Integer id);
 
 	public List<Staff> findAllStaff();
 }
