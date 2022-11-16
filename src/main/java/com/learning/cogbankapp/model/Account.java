@@ -1,6 +1,8 @@
 package com.learning.cogbankapp.model;
 
 import java.util.ArrayList;
+import java.util.HashSet;
+import java.util.Set;
 
 import javax.persistence.CascadeType;
 import javax.persistence.Entity;
@@ -11,7 +13,7 @@ import javax.persistence.ManyToOne;
 import javax.persistence.OneToMany;
 import javax.persistence.Table;
 
-import antlr.collections.List;
+
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
@@ -25,12 +27,12 @@ public class Account {
 	@GeneratedValue
 	private Integer accountId;	
 	@ManyToOne(cascade=CascadeType.ALL)
-	private Integer customerId;
+	private Customer customer;
 	private Float accountValue;
 	private boolean accountActive = false;
-	@OneToMany(cascade=CascadeType.ALL, mappedBy="senderId",fetch=FetchType.EAGER)
-	private ArrayList <Transaction> sendTransactions = new ArrayList<>();
-	@OneToMany(cascade=CascadeType.ALL, mappedBy="receiverId",fetch=FetchType.EAGER)
-	private ArrayList <Transaction> receiveTransactions = new ArrayList<>();
+	@OneToMany(cascade=CascadeType.ALL, mappedBy="sender",fetch=FetchType.EAGER)
+	private Set <Transaction> sendTransactions = new HashSet<>();
+	@OneToMany(cascade=CascadeType.ALL, mappedBy="receiver",fetch=FetchType.EAGER)
+	private Set <Transaction> receiveTransactions = new HashSet<>();
 	
 }

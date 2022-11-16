@@ -23,9 +23,10 @@ public class Transaction {
 	@GeneratedValue
 	private Integer transactionId;
 	@ManyToOne(cascade=CascadeType.ALL)
-	private Integer senderId;
+	private Account sender;
 	@ManyToOne(cascade=CascadeType.ALL)
-	private Integer receiverId;
+
+	private Account receiver;
 	private Float amount;
 	
 }
