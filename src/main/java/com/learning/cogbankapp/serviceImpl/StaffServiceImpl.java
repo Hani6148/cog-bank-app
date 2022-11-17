@@ -25,7 +25,12 @@ public class StaffServiceImpl implements StaffService {
 	@Override
 	public Staff updateStaff(Staff staff) {
 		// TODO Auto-generated method stub
-		return null;
+		Staff s = sr.findById(staff.getId()).get();
+		s.setFirstName(staff.getFirstName());
+		s.setLastName(staff.getLastName());
+		s.setEmail(staff.getEmail());
+		s.setPassword(staff.getPassword());
+		return sr.save(s);
 	}
 
 	@Override
