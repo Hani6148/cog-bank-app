@@ -35,19 +35,19 @@ public class StaffServiceValidationImpl implements StaffServiceValidation {
 	@Override
 	public void deleteById(Integer id) {
 		// TODO Auto-generated method stub
-
+		sr.deleteById(id);
 	}
 
 	@Override
 	public Staff findStaffById(Integer id) {
 		// TODO Auto-generated method stub
-		return null;
+		return sr.findById(id).get();
 	}
 
 	@Override
 	public List<Staff> findAllStaff() {
 		// TODO Auto-generated method stub
-		return null;
+		return sr.findAll();
 	}
 
 }
