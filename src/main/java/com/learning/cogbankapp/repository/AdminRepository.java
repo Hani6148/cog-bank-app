@@ -7,4 +7,5 @@ import com.learning.cogbankapp.model.Admin;
 public interface AdminRepository extends JpaRepository<Admin, Integer>{
 
 	
+	
 }

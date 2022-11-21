@@ -26,9 +26,4 @@ public class Admin {
 	String username;
 	String password;
 	
-	String staffFullName; 
-	String staffUserName; 
-	String staffPassword; 
-
-	
 }
