@@ -4,6 +4,7 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
 import javax.persistence.Table;
+import javax.validation.constraints.NotNull;
 
 import lombok.AllArgsConstructor;
 import lombok.Getter;
@@ -23,6 +24,7 @@ public class Admin {
 	@Id
 	@GeneratedValue
 	Integer id;
+	@NotNull(message ="username can't be null")
 	String username;
 	String password;
 	

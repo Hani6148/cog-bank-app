@@ -22,10 +22,27 @@ public class StaffServiceImpl implements StaffService {
 		return sr.save(staff);
 	}
 
+	/*public Employee update(Employee e) {
+		Employee e1 = empRepository.findById(e.getId()).orElse(null);
+		e1.setEmail(e.getEmail());
+		e1.setName(e.getName());
+		e1.setMobileno(e.getMobileno());
+		e1.setSalary(e.getSalary());
+
+		return empRepository.save(e1);
+	}*/
+	
+	
 	@Override
 	public Staff updateStaff(Staff staff) {
 		// TODO Auto-generated method stub
-		return null;
+		Staff staff1 = sr.findById(staff.getId()).orElse(null);
+		staff1.setEmail(staff.getEmail());
+		staff1.setFirstName(staff.getFirstName());
+		staff1.setLastName(staff.getLastName());
+		staff1.setPassword(staff.getPassword());
+
+		return sr.save(staff1);
 	}
 
 	@Override
