@@ -36,7 +36,6 @@ public class AdminController {
 	}
 	
 	@PostMapping("/staff")
-	@ResponseBody
 	public String createStaff(@RequestBody Staff staff) {
 		  /*staffFullName: String, 
 		  staffUserName: String, 

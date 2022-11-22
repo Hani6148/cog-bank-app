@@ -6,7 +6,7 @@ import org.springframework.context.annotation.Bean;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.security.crypto.password.PasswordEncoder;
 
-import com.learning.cogbankapp.serviceImpl.CustomerDetailsServiceImpl;
+import com.learning.cogbankapp.serviceImpl.UserDetailsServiceImpl;
 
 @SpringBootApplication
 public class CogBankAppApplication {
@@ -21,8 +21,8 @@ public class CogBankAppApplication {
 	}
 	
 	@Bean
-	public CustomerDetailsServiceImpl CustomerDetailsService() {
-		return new CustomerDetailsServiceImpl();
+	public UserDetailsServiceImpl CustomerDetailsService() {
+		return new UserDetailsServiceImpl();
 	}
 	
 

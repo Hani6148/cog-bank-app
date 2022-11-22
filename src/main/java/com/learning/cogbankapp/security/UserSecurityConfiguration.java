@@ -23,16 +23,16 @@ import org.springframework.security.web.authentication.UsernamePasswordAuthentic
 import com.learning.cogbankapp.filter.AuthFilter;
 import com.learning.cogbankapp.filter.CustomAuthFilter;
 import com.learning.cogbankapp.model.Customer;
-import com.learning.cogbankapp.serviceImpl.CustomerDetailsServiceImpl;
+import com.learning.cogbankapp.serviceImpl.UserDetailsServiceImpl;
 
 import lombok.RequiredArgsConstructor;
 
 @Configuration @EnableWebSecurity @RequiredArgsConstructor
-public class CustomerSecurityConfiguration extends WebSecurityConfigurerAdapter {
+public class UserSecurityConfiguration extends WebSecurityConfigurerAdapter {
 	
 	
 	private final BCryptPasswordEncoder bCryptPasswordEncoder;
-	private final CustomerDetailsServiceImpl customerUserDetails;
+	private final UserDetailsServiceImpl customerUserDetails;
 	@Override
 	protected void configure(AuthenticationManagerBuilder auth) throws Exception {
 	
@@ -44,11 +44,12 @@ public class CustomerSecurityConfiguration extends WebSecurityConfigurerAdapter 
 	@Override
 	protected void configure(HttpSecurity http) throws Exception {
 		CustomAuthFilter customAuthFilter= new CustomAuthFilter(authenticationManagerBean());
-		customAuthFilter.setFilterProcessesUrl("/customer/login");
+		customAuthFilter.setFilterProcessesUrl("/user/login");
 		http.csrf().disable();
 		http.sessionManagement().sessionCreationPolicy(SessionCreationPolicy.STATELESS);
-		http.authorizeHttpRequests().antMatchers("/customer/login").permitAll();
-		http.authorizeHttpRequests().antMatchers("/bankcstmr/save").permitAll();
+		http.authorizeHttpRequests().antMatchers("/user/login").permitAll();
+		http.authorizeHttpRequests().antMatchers("/bankcstmr/register").permitAll();
+		http.authorizeHttpRequests().antMatchers("/api/admin/staff").permitAll();
 
 		http.authorizeHttpRequests().antMatchers("/bankcstmr/**").hasAnyAuthority("customer");
 	    http.authorizeHttpRequests().anyRequest().authenticated();
