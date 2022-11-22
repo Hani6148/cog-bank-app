@@ -4,33 +4,50 @@ import java.util.List;
 import java.util.Optional;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;
 
 import com.learning.cogbankapp.model.Staff;
 import com.learning.cogbankapp.repository.StaffRepository;
 import com.learning.cogbankapp.service.StaffService;
 
-@Service
+import lombok.RequiredArgsConstructor;
+
+@Service @RequiredArgsConstructor 
 public class StaffServiceImpl implements StaffService {
-	
+	private final PasswordEncoder passwordEncoder;
+
 	@Autowired
 	private StaffRepository sr;
 
 	@Override
 	public Staff registerStaff(Staff staff) {
 		// TODO Auto-generated method stub
+		staff.setPassword(passwordEncoder.encode(staff.getPassword()));
 		return sr.save(staff);
 	}
 
+	/*public Employee update(Employee e) {
+		Employee e1 = empRepository.findById(e.getId()).orElse(null);
+		e1.setEmail(e.getEmail());
+		e1.setName(e.getName());
+		e1.setMobileno(e.getMobileno());
+		e1.setSalary(e.getSalary());
+
+		return empRepository.save(e1);
+	}*/
+	
+	
 	@Override
 	public Staff updateStaff(Staff staff) {
 		// TODO Auto-generated method stub
-		Staff s = sr.findById(staff.getId()).get();
-		s.setFirstName(staff.getFirstName());
-		s.setLastName(staff.getLastName());
-		s.setEmail(staff.getEmail());
-		s.setPassword(staff.getPassword());
-		return sr.save(s);
+		Staff staff1 = sr.findById(staff.getId()).orElse(null);
+		staff1.setEmail(staff.getEmail());
+		staff1.setFirstName(staff.getFirstName());
+		staff1.setLastName(staff.getLastName());
+		staff1.setPassword(staff.getPassword());
+
+		return sr.save(staff1);
 	}
 
 	@Override
