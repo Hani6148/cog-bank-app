@@ -17,9 +17,9 @@ import lombok.NoArgsConstructor;
 public class Staff {
 	@Id
 	@GeneratedValue
-	private int id;
+	private Integer id;
+	private String email;
 	private String firstName;
 	private String lastName;
-	private String email;
 	private String password;
 }

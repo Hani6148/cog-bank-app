@@ -4,21 +4,26 @@ import java.util.List;
 import java.util.Optional;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;
 
 import com.learning.cogbankapp.model.Staff;
 import com.learning.cogbankapp.repository.StaffRepository;
 import com.learning.cogbankapp.service.StaffService;
 
-@Service
+import lombok.RequiredArgsConstructor;
+
+@Service @RequiredArgsConstructor 
 public class StaffServiceImpl implements StaffService {
-	
+	private final PasswordEncoder passwordEncoder;
+
 	@Autowired
 	private StaffRepository sr;
 
 	@Override
 	public Staff registerStaff(Staff staff) {
 		// TODO Auto-generated method stub
+		staff.setPassword(passwordEncoder.encode(staff.getPassword()));
 		return sr.save(staff);
 	}
 

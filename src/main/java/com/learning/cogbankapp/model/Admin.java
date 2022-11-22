@@ -26,6 +26,7 @@ public class Admin {
 	Integer id;
 	@NotNull(message ="username can't be null")
 	String username;
+	String email;
 	String password;
 	
 }
