@@ -1,25 +1,37 @@
 package com.learning.cogbankapp.serviceImpl;
 
+import java.util.ArrayList;
+import java.util.List;
 import java.util.Optional;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;
 
 import com.learning.cogbankapp.model.Customer;
+import com.learning.cogbankapp.model.Staff;
 import com.learning.cogbankapp.repository.CustomerRepository;
 import com.learning.cogbankapp.service.CustomerService;
 
-@Service
+import lombok.NoArgsConstructor;
+import lombok.RequiredArgsConstructor;
+
+@Service  @RequiredArgsConstructor 
 public class CustomerServiceImpl implements CustomerService {
+	
+	
 
 	@Autowired
 	CustomerRepository cusRepo;
+	private final PasswordEncoder passwordEncoder;
 
 
 	@Override
 	public Customer register(Customer c) {
-
+		c.setPassword(passwordEncoder.encode(c.getPassword()));
 		return cusRepo.save(c);
+
+		
 	}
 
 
@@ -42,5 +54,11 @@ public class CustomerServiceImpl implements CustomerService {
 	
 		cusRepo.deleteById(id);
 	}
+	
+	@Override
+	public List<Customer> findAllCustomrs() {
+		return cusRepo.findAll();
+	}
+
 	
 }

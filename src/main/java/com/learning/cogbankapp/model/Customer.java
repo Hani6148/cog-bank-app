@@ -31,6 +31,7 @@ public class Customer {
 	@Id
 	@GeneratedValue
 	private Integer id;				//ID should be the primary key, and should be matching with the customerID of the banking
+	private String email;
 	private String last_name;
 	private String first_name;
 	private String middle_name;
